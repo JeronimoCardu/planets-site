@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+body,
+html,
+#root {
+  width: 100%;
+  height: 100%;
+  font-size: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html{
+  background-image: url(../public/images/background-stars.svg);
+  background-size: cover;
+  background-color: var(--color-070724);
+}
+
+@font-face {
+  font-family: antonioMedium;
+  src: url(../public/fonts/antonio/Antonio-Medium.ttf);
+}
+@font-face {
+  font-family: spartanBold;
+  src: url(../public/fonts/spartan/LeagueSpartan-Bold.ttf);
+}
+@font-face {
+  font-family: spartanRegular;
+  src: url(../public/fonts/spartan/LeagueSpartan-Regular.ttf);
+}
+
+@theme {
+  --color-070724: #070724;
+  --color-38384f: #38384f;
+  --color-838391: #838391;
+  --color-419ebb: #419ebb;
+  --color-eda249: #eda249;
+  --color-6f2ed6: #6f2ed6;
+  --color-d14c32: #d14c32;
+  --color-d83a34: #d83a34;
+  --color-cd5120: #cd5120;
+  --color-1ec2a4: #1ec2a4;
+  --color-2d68f0: #2d68f0;
+
+  --breakpoint-tablet: 769px;
+  --breakpoint-desktop: 1441px;
+}
+
+@layer base {
+  h1 {
+    font-family: antonioMedium;
+    font-size: 5rem;
+    line-height: 6.4375rem;
+  }
+  h2 {
+    font-family: antonioMedium;
+    font-size: 2.5rem;
+    line-height: 3.25rem;
+    letter-spacing: -1.5px;
+  }
+  h3 {
+    font-family: spartanBold;
+    font-size: 0.75rem;
+    line-height: 1.5625rem;
+    letter-spacing: 2.6px;
+  }
+  h4 {
+    font-family: spartanBold;
+    font-size: 0.6875rem;
+    line-height: 1.5625rem;
+    letter-spacing: 1px;
+  }
+  p {
+    font-family: spartanRegular;
+    font-size: 0.875rem;
+    line-height: 1.5625rem;
+  }
+}
