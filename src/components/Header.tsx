@@ -1,31 +1,22 @@
+import usePlanetStore from "../hooks/useStore";
 import ListPlanets from "./ListPlanets";
-import { useLocation } from "react-router-dom";
-type Props = {
-  openMenu: boolean;
-  setOpenMenu: (open: boolean) => void;
-};
 
-export default function Header({ openMenu, setOpenMenu }: Props) {
-  const { pathname } = useLocation();
+export default function Header() {
+  const setOpenMenu = usePlanetStore((state) => state.setOpenMenu);
+  const openMenu = usePlanetStore((state) => state.openMenu);
   return (
     <>
-      <header>
-        <div className="flex p-6 justify-between items-center">
+      <header className="desktop:flex desktop:justify-between desktop:items-center tablet:border-b-1 tablet:border-t-0 border-gray-500">
+        <div className="tablet:justify-center flex items-center justify-between p-6">
           <h2 className="text-white">THE PLANETS</h2>
           <button
-            onClick={() => pathname != "/" && setOpenMenu(!openMenu)}
-            className=" tablet:hidden cursor-pointer"
+            onClick={() => setOpenMenu(!openMenu)}
+            className="tablet:hidden cursor-pointer"
           >
             <img src="/images/icon-hamburger.svg" alt="menu" />
           </button>
         </div>
-        <div className="tablet:hidden">
-          {pathname == "/" || openMenu ? (
-            <ListPlanets setOpenMenu={setOpenMenu} />
-          ) : (
-            ""
-          )}
-        </div>
+        <ListPlanets />
       </header>
     </>
   );
